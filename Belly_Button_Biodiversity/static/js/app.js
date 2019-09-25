@@ -40,6 +40,7 @@ function buildCharts(sample) {
             marker: {
                 size: sample_values,
                 color: otu_ids,
+                colorscale: "Electric"
             }
         }]
 
@@ -59,18 +60,19 @@ function buildCharts(sample) {
             labels: otu_ids.slice(0, 10),
             hovertext: otu_labels.slice(0, 10),
             hoverinfo: "hovertext",
-            type: "pie"
+            type: "pie",
+            marker: { colorscale: "Electric" }
+
         }];
         let layoutPie = {
-            margin: { t: 0, l: 0 }
+            margin: { t: 0, b: 0, l: 15, r: 15 }
         };
         Plotly.plot("pie", dataPie, layoutPie)
     })
 }
 
 function init() {
-    console.log("Howdy")
-        // Grab a reference to the dropdown select element
+    // Grab a reference to the dropdown select element
     var selector = d3.select("#selDataset");
     console.log(selector);
 
